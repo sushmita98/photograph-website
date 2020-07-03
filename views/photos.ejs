@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Photograph Website.
+	</title>
+	<!-- Latest compiled and minified CSS -->
+ 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	 	<link href="./css/search.css" rel="stylesheet">
+</head>
+<body>
+
+
+<h1 style="font-size:500%; text-align:center;"> <%= key %> </h1>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <form action="/" method="post" align="center" class="form-inline">
+	    <input class="form-control mr-sm-2" type="search" name="keywords" align="middle" size="100" style="height: 35px; margin-top: 20% auto; margin-bottom: 10% auto" placeholder="Search" aria-label="Search">
+	    <button class="btn btn-outline-success my-2 my-sm-0" style="height: 35px;" type="submit">Search</button>
+  </form>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: 2%">
+  		<button class="btn btn-primary" id="b1" type="button">raw image</button>
+      	<button class="btn btn-primary" id="b2" type="button">full image</button>
+      	<button class="btn btn-primary" id="b3" type="button">regular image</button>
+      	<button class="btn btn-primary" id="b4" type="button">small image</button>
+      	<button class="btn btn-primary" id="b5" type="button">thumb image</button>
+    <!--  	<button class="btn btn-primary" id="b1" action="/search" method="get" <% onclick="doFunc(1);" %> type="button">raw image</button>
+      	<button class="btn btn-primary" id="b2" action="/search" method="get" onclick="doFunc(2);" type="button">full image</button>
+      	<button class="btn btn-primary" id="b3" action="/search" method="get" onclick="doFunc(3)" type="button">regular image</button>
+      	<button class="btn btn-primary" id="b4" action="/search" method="get" onclick="doFunc(4)" type="button">small image</button>
+      	<button class="btn btn-primary" id="b5" action="/search" method="get" onclick="doFunc(5)" type="button">thumb image</button> -->
+  </div>
+</nav>
+
+<div class="container" >
+		<div class="column" style="column-count: 4;" >
+			<div class="col-lg-4 col-md-4 col-xs-4 thumb" style="padding: 5px 5px; width: 100%;">
+				<div class="thumbnail">
+					<% for(var i=0;i<imgURL.length;i++) { %>
+						<% var image = imgURL[i]; %>
+						<% console.log(image); %>
+					  <img src=<%= image %> alt="Card image cap" style="width:100%">
+					 <% } %>
+				 </div>
+			</div>
+		</div>
+</div>
+	
+<!-- <%	function doFunc(param){ %>
+<% console.log("Called Dofunc"); %>
+	<div class="container" >
+		<div class="column" style="column-count: 4;" >
+			<div class="col-lg-4 col-md-4 col-xs-4 thumb" style="padding: 5px 5px; width: 100%;">
+				<div class="thumbnail">
+				<%	if(param === 1){ %>
+					<% for(var i=0;i<imgURL.length;i++) { %>
+						<% var image = imgURL[i].urls.raw; %>
+						<% console.log(image); %>
+					  <img src=<%= image %> alt="Card image cap" style="width:100%">
+					 <% } %>
+					 <% } %>
+				<%	if(param === 2){ %>
+					<% for(var i=0;i<imgURL.length;i++) { %>
+						<% var image = imgURL[i].urls.full %>
+						<% console.log(image) %>
+					  <img src=<%= image %> alt="Card image cap" style="width:100%">
+					 <% } %>
+					 <% } %>
+				<%	if(param === 3){ %>
+					<% for(var i=0;i<imgURL.length;i++) { %>
+						<% var image = imgURL[i].urls.regular %>
+						<% console.log(image) %>
+					  <img src=<%= image %> alt="Card image cap" style="width:100%">
+					 <% } %>
+					 <% } %>
+				<%	if(param === 4){ %>
+					<% for(var i=0;i<imgURL.length;i++) { %>
+						<% var image = imgURL[i].urls.small %>
+						<% console.log(image) %>
+					  <img src=<%= image %> alt="Card image cap" style="width:100%">
+					 <% } %>
+					 <% } %>
+				<%	if(param === 5){ %>
+					<% for(var i=0;i<imgURL.length;i++) { %>
+						<% var image = imgURL[i].urls.thumb %>
+						<% console.log(image) %>
+					  <img src=<%= image %> alt="Card image cap" style="width:100%">
+					 <% } %>
+					 <% } %>	 	 		 	 
+				 </div>
+			</div>
+		</div>
+	</div>
+<% } %>
+-->
+</body>
+</html>
